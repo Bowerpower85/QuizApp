@@ -1,4 +1,16 @@
+.root {
+    background-color: bisque;
+    font-weight: 62.5%;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0; 
+}
+
 body {
+    
     background-color: bisque;
 }
 
@@ -12,14 +24,19 @@ h1 {
     text-align: center;
 }
 
-#btn {
+.btn {
+    background-color: #04a99a;
     position: relative;
     font-size: large; 
-    width: 30%;
-    height: 120px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    margin-top: 2rem;
-    text-align: center;
-    border-width: 1rem;
+    text-decoration: none;
+    border-width: 2rem;
     border-color: cornflowerblue;
+    border-radius: 2rem;
+    border: solid;
+    border-color: blueviolet;
+    box-shadow: 0 0 20px 2px;
+    padding: 2rem 2rem;
+    color: white;
+
 }
