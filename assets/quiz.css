@@ -35,6 +35,7 @@ h2 {
   
   .choice-text {
     padding: 1.5rem;
+    width: 100%;
   }
 
   /* UTILITIES */
@@ -52,21 +53,31 @@ h2 {
   .container > * {
     width: 80%;
   }
-  
-  .flex-column {
-    display: flex;
-    flex-direction: column;
+
+  .correct {
+      background-color: rgb(90, 175, 4);
+  }
+
+  .incorrect {
+      background-color: rgb(236, 3, 50);
   }
   
-  .flex-center {
+  /* HUD */
+
+  .hud-prefix {
+      font-size: 2rem;
+  }
+ 
+  
+  /* .flex-center {
     justify-content: center;
     align-items: center;
-  }
+  } */
   
-  .justify-center {
+  /* .justify-center {
     justify-content: center;
-  }
+  } */
   
-  .text-center {
+  /* .text-center {
     text-align: center;
-  }
+  } */

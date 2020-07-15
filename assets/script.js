@@ -41,13 +41,13 @@ let questions = [
     choice2: "Essential for Hula Hoops?",
     choice3: "A structure of code where you can perform the same action multiple times in a row?",
     choice4: "None of the above?",
-    answer: 4
+    answer: 3
   }
 ];
 
 //CONSTANTS
-const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 4;
+const rightScore = 10;
+const totalQuestions = 4;
 
 startGame = () => {
   questionCounter = 0;
@@ -57,12 +57,12 @@ startGame = () => {
 };
 
 getNewQuestion = () => {
-  if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+  if (availableQuesions.length === 0 || questionCounter >=totalQuestions) {
     //go to the end page
-    return window.location.assign("/end.html");
+    return window.location.assign("/gameover.html");
   }
   questionCounter++;
-  questionCounterText.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
+//   questionCounterText.innerText = `${questionCounter}/${totalQuestions}`;
 
   const questionIndex = Math.floor(Math.random() * availableQuesions.length);
   currentQuestion = availableQuesions[questionIndex];
@@ -87,9 +87,9 @@ choices.forEach(choice => {
 
     const classToApply =
       selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
-
+    
     if (classToApply === "correct") {
-      incrementScore(CORRECT_BONUS);
+      incrementScore(rightScore);
     }
 
     selectedChoice.parentElement.classList.add(classToApply);
@@ -103,8 +103,9 @@ choices.forEach(choice => {
 
 incrementScore = num => {
   score += num;
-  scoreText.innerText = score;
+//   scoreText.innerText = score;
 };
 
 startGame();
+
 
