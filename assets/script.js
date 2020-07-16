@@ -1,7 +1,9 @@
 const question = document.getElementById("question");
-const choices = Array.from(document.getElementsByClassName("choice-text"));
+const answers = Array.from(document.getElementsByClassName("answer-text"));
 const questionCounterText = document.getElementById("questionCounter");
 const scoreText = document.getElementById("score");
+const rightScore = 10;
+const totalQuestions = 4;
 
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -45,9 +47,9 @@ let questions = [
   }
 ];
 
-//CONSTANTS
-const rightScore = 10;
-const totalQuestions = 4;
+// //CONSTANTS
+// const rightScore = 10;
+// const totalQuestions = 4;
 
 startGame = () => {
   questionCounter = 0;
@@ -62,27 +64,27 @@ getNewQuestion = () => {
     return window.location.assign("/gameover.html");
   }
   questionCounter++;
-//   questionCounterText.innerText = `${questionCounter}/${totalQuestions}`;
+  // questionCounterText.innerText = `${questionCounter}/${totalQuestions}`;
 
   const questionIndex = Math.floor(Math.random() * availableQuesions.length);
   currentQuestion = availableQuesions[questionIndex];
   question.innerText = currentQuestion.question;
 
-  choices.forEach(choice => {
-    const number = choice.dataset["number"];
-    choice.innerText = currentQuestion["choice" + number];
+  answers.forEach((answer) => {
+    const number = answer.dataset["number"];
+    answer.innerText = currentQuestion["choice" + number];
   });
 
   availableQuesions.splice(questionIndex, 1);
   acceptingAnswers = true;
 };
 
-choices.forEach(choice => {
-  choice.addEventListener("click", e => {
+answers.forEach((answers) => {
+  answers.addEventListener("click", event => {
     if (!acceptingAnswers) return;
 
     acceptingAnswers = false;
-    const selectedChoice = e.target;
+    const selectedChoice = event.target;
     const selectedAnswer = selectedChoice.dataset["number"];
 
     const classToApply =
@@ -103,7 +105,7 @@ choices.forEach(choice => {
 
 incrementScore = num => {
   score += num;
-//   scoreText.innerText = score;
+  scoreText.innerText = score;
 };
 
 startGame();
