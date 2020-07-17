@@ -4,9 +4,11 @@ const questionCounterText = document.getElementById("questionCounter");
 const scoreText = document.getElementById("score");
 const rightScore = 10;
 const totalQuestions = 4;
+const timeEl = document.getElementById("timer");
 
 let currentQuestion = {};
 let acceptingAnswers = false;
+let secondsLeft= 45;
 let score = 0;
 let questionCounter = 0;
 let availableQuesions = [];
@@ -56,8 +58,21 @@ startGame = () => {
   score = 0;
   availableQuesions = [...questions];
   getNewQuestion();
-};
+  setTime();
 
+  function setTime() {
+    let secondsLeft = 45;
+    let timerInterval = setInterval(function() {
+      document.getElementById("timer").innerHTML="00:" + secondsLeft;
+      secondsLeft--;
+      
+      if (secondsLeft === 0) {
+        return window.location.assign("/gameover.html");
+      }
+    }, 1000);
+  }
+  };
+  
 getNewQuestion = () => {
   if (availableQuesions.length === 0 || questionCounter >=totalQuestions) {
     //go to the end page
@@ -92,6 +107,8 @@ answers.forEach((answers) => {
     
     if (classToApply === "correct") {
       incrementScore(rightScore);
+    } else {
+      
     }
 
     selectedChoice.parentElement.classList.add(classToApply);
