@@ -60,14 +60,14 @@ startGame = () => {
   getNewQuestion();
   setTime();
 
-  function setTime() {
+   function setTime() {
     let secondsLeft = 45;
     let timerInterval = setInterval(function() {
-      document.getElementById("timer").innerHTML="00:" + secondsLeft;
+      document.getElementById("timer").innerHTML="" + secondsLeft;
       secondsLeft--;
       
       if (secondsLeft === 0) {
-        return window.location.assign("/gameover.html");
+        return window.location.assign("gameover.html");
       }
     }, 1000);
   }
@@ -76,7 +76,7 @@ startGame = () => {
 getNewQuestion = () => {
   if (availableQuesions.length === 0 || questionCounter >=totalQuestions) {
     //go to the end page
-    return window.location.assign("/gameover.html");
+    return window.location.assign("gameover.html");
   }
   questionCounter++;
   // questionCounterText.innerText = `${questionCounter}/${totalQuestions}`;
@@ -108,7 +108,10 @@ answers.forEach((answers) => {
     if (classToApply === "correct") {
       incrementScore(rightScore);
     } else {
-      
+      let timerInterval = setInterval(function() {
+        document.getElementById("timer").innerHTML=secondsLeft - 10;
+        // secondsLeft--;
+      }, 1000);
     }
 
     selectedChoice.parentElement.classList.add(classToApply);

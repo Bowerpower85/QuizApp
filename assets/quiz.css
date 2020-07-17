@@ -41,8 +41,6 @@ h2 {
     width: 100%;
   }
 
-  /* UTILITIES */
-
 .container {
     width: 100vw;
     height: 100vh;
@@ -65,22 +63,9 @@ h2 {
       background-color: rgb(236, 3, 50);
   }
   
-  /* HUD */
-
   .hud-prefix {
       font-size: 2rem;
   }
  
   
-  /* .flex-center {
-    justify-content: center;
-    align-items: center;
-  } */
   
-  /* .justify-center {
-    justify-content: center;
-  } */
-  
-  /* .text-center {
-    text-align: center;
-  } */
