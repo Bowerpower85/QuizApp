@@ -3,12 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
     <title>Game Over</title>
 </head>
 <body>
-    <h1 class="gameOver">
-        Game Over
-    </h1>
-
+    <div class="container">
+       <div id="gameover" class="flex-center flex column">
+          <h1 id="finalScore"></h1>
+          <form>
+              <input
+                type="text"
+                name="initials"
+                id="initials"
+                placeholder="initials"
+              > 
+              <button 
+              type="submit"
+              class="btn"
+              id="saveScoreBtn"
+              onclick="saveScore(event)"
+              >
+              SAVE 
+              </button>
+          </form>
+       </div>
+    </div>
+    <script src="assets/gameover.js"></script>
 </body>
 </html>

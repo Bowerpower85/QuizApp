@@ -40,3 +40,22 @@ h1 {
     color: white;
 
 }
+/* For gameover html */
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    margin-bottom: 2rem;
+    width: 30rem;
+    padding: 2rem;
+
+}
+
+#highScore {
+    padding: 2rem;
+}

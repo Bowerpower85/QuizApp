@@ -75,6 +75,7 @@ startGame = () => {
   
 getNewQuestion = () => {
   if (availableQuesions.length === 0 || questionCounter >=totalQuestions) {
+    localStorage.setItem("currentScore", score);
     //go to the end page
     return window.location.assign("gameover.html");
   }
@@ -127,6 +128,8 @@ incrementScore = num => {
   score += num;
   scoreText.innerText = score;
 };
+
+// window.localStorage.setItem("currentScore", "score");
 
 startGame();
 
