@@ -8,7 +8,7 @@ const timeEl = document.getElementById("timer");
 
 let currentQuestion = {};
 let acceptingAnswers = false;
-let secondsLeft= 45;
+let secondsLeft= 30;
 let score = 0;
 let questionCounter = 0;
 let availableQuesions = [];
@@ -61,7 +61,7 @@ startGame = () => {
   setTime();
 
    function setTime() {
-    let secondsLeft = 45;
+    // let secondsLeft = "45";
     let timerInterval = setInterval(function() {
       document.getElementById("timer").innerHTML="" + secondsLeft;
       secondsLeft--;
@@ -109,9 +109,9 @@ answers.forEach((answers) => {
       incrementScore(rightScore);
     } else {
       let timerInterval = setInterval(function() {
-        document.getElementById("timer").innerHTML=secondsLeft - 10;
-        // secondsLeft--;
-      }, 1000);
+        document.getElementById("timer").innerHTML="" + secondsLeft;
+        secondsLeft--;
+      }, 6000);
     }
 
     selectedChoice.parentElement.classList.add(classToApply);
