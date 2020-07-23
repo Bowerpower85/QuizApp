@@ -61,7 +61,6 @@ startGame = () => {
   setTime();
 
    function setTime() {
-    // let secondsLeft = "45";
     let timerInterval = setInterval(function() {
       document.getElementById("timer").innerHTML="" + secondsLeft;
       secondsLeft--;
@@ -76,11 +75,12 @@ startGame = () => {
 getNewQuestion = () => {
   if (availableQuesions.length === 0 || questionCounter >=totalQuestions) {
     localStorage.setItem("currentScore", score);
-    //go to the end page
+    
+    //sends user to gameover page
     return window.location.assign("gameover.html");
   }
   questionCounter++;
-  // questionCounterText.innerText = `${questionCounter}/${totalQuestions}`;
+ 
 
   const questionIndex = Math.floor(Math.random() * availableQuesions.length);
   currentQuestion = availableQuesions[questionIndex];
@@ -128,8 +128,6 @@ incrementScore = num => {
   score += num;
   scoreText.innerText = score;
 };
-
-// window.localStorage.setItem("currentScore", "score");
 
 startGame();
 
